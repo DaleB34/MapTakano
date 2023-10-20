@@ -16,7 +16,8 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <meta-data
-            android:name="com.google.android.geo.API_KEY"></meta-data>
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCXesaUjbnblg03_C4nC2rrf5RqaDs0UCc"></meta-data>
 <!--        Need to get my own api key at home-->
         <activity
             android:name=".MainActivity"
