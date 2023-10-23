@@ -16,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
@@ -28,12 +29,24 @@ public class MapFragment extends Fragment {
         //what happens when user clicks on the map
         supportMapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(@NonNull GoogleMap googleMap) {
+            public void onMapReady(@NonNull GoogleMap gMap) {
+
                 //setting starting point of the project
                 CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9312, -117.1928), 14);
-                googleMap.moveCamera(point);
-                googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+                gMap.moveCamera(point);
+                final LatLng vvhsLatLng = new LatLng(33.9312,-117.1928);
+                Marker vvhs = gMap.addMarker(
+                        new MarkerOptions()
+                                .position(vvhsLatLng)
+                                .title("Valley View High School")
+                                .snippet("Future Events:\npoosay")
+                );
+                vvhs.showInfoWindow();
+
+
+                gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
                 {
+
 
                     @Override
                     public void onMapClick(@NonNull LatLng latLng)
@@ -41,9 +54,9 @@ public class MapFragment extends Fragment {
                         MarkerOptions markerOptions = new MarkerOptions();
                         markerOptions.position(latLng);
                         markerOptions.title(latLng.latitude + " KG " + latLng.longitude);
-                        googleMap.clear();
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,5));
-                        googleMap.addMarker(markerOptions);
+                        gMap.clear();
+                        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,5));
+                        gMap.addMarker(markerOptions);
 
                     }
                 }
