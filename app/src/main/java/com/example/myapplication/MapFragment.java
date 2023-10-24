@@ -34,12 +34,14 @@ public class MapFragment extends Fragment {
                 //setting starting point of the project
                 CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9312, -117.1928), 14);
                 gMap.moveCamera(point);
+                gMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(MapFragment.this));
+
                 final LatLng vvhsLatLng = new LatLng(33.9312,-117.1928);
                 Marker vvhs = gMap.addMarker(
                         new MarkerOptions()
                                 .position(vvhsLatLng)
                                 .title("Valley View High School")
-                                .snippet("Future Events:\npoosay")
+                                .snippet("Future Events")
                 );
                 vvhs.showInfoWindow();
 
