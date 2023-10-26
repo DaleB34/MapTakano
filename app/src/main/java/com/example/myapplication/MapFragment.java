@@ -32,37 +32,38 @@ public class MapFragment extends Fragment {
             public void onMapReady(@NonNull GoogleMap gMap) {
 
                 //setting starting point of the project
+                //and other things to make
                 CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9312, -117.1928), 14);
                 gMap.moveCamera(point);
-                gMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(MapFragment.this));
+                gMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(getActivity()));
 
                 final LatLng vvhsLatLng = new LatLng(33.9312,-117.1928);
                 Marker vvhs = gMap.addMarker(
                         new MarkerOptions()
                                 .position(vvhsLatLng)
                                 .title("Valley View High School")
-                                .snippet("Future Events")
+                                .snippet("Future Events:\nMrs.Rioux gets a millon dollars")
                 );
                 vvhs.showInfoWindow();
 
 
-                gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
-                {
-
-
-                    @Override
-                    public void onMapClick(@NonNull LatLng latLng)
-                    {
-                        MarkerOptions markerOptions = new MarkerOptions();
-                        markerOptions.position(latLng);
-                        markerOptions.title(latLng.latitude + " KG " + latLng.longitude);
-                        gMap.clear();
-                        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,5));
-                        gMap.addMarker(markerOptions);
-
-                    }
-                }
-                );
+                //onclick map functionality
+//                gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+//                {
+//                    @Override
+//                    public void onMapClick(@NonNull LatLng latLng)
+//                    {
+//                        MarkerOptions markerOptions = new MarkerOptions();
+//                        markerOptions.position(latLng);
+//                        markerOptions.title(latLng.latitude + " KG " + latLng.longitude);
+//                        gMap.clear();
+//                        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,5));
+//                        gMap.addMarker(markerOptions);
+//
+//                    }
+//                }
+//
+//                );
             }
         });
         return view;
