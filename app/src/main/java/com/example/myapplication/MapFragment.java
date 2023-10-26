@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +37,17 @@ public class MapFragment extends Fragment {
                 gMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(getActivity()));
 
                 final LatLng vvhsLatLng = new LatLng(33.9312,-117.1928);
+
+                String vvhsEvents = "<ol style=\"margin-top:3em;\">" +
+                                     "<li>Ms.Rioux Gets One Million dollars</li>" +
+                                    "<li>Ms.Rioux Gets One Million dollars</li>"
+                                    + "</ol>";
+
                 Marker vvhs = gMap.addMarker(
                         new MarkerOptions()
                                 .position(vvhsLatLng)
                                 .title("Valley View High School")
-                                .snippet("Future Events:\nMrs.Rioux gets a millon dollars")
+                                .snippet("<p>Future Events</p>" + vvhsEvents)
                 );
                 vvhs.showInfoWindow();
 
