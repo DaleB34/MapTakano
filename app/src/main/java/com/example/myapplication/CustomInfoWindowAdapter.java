@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         TextView tvSnippet = (TextView) view.findViewById(R.id.snippet);
         if(!snippet.equals(""))
         {
-            tvSnippet.setText(snippet);
+            tvSnippet.setText(Html.fromHtml(snippet));
         }
     }
 
