@@ -32,7 +32,7 @@ public class MapFragment extends Fragment {
 
                 //setting starting point of the project
                 //and other things to make
-                CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9627, -117.2580), 12);
+                CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9183429,-117.2153814), 12);
                 gMap.moveCamera(point);
                 gMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(getActivity()));
 
@@ -100,6 +100,18 @@ public class MapFragment extends Fragment {
                                         "\n⚫ Regular Board Meeting -November 14th" +
                                         "\n⚫ Bountiful Harvest -November 17th" +
                                         "\n⚫ Thanksgiving Break -November 20th - 24th")
+                );
+
+                final LatLng lshsLatLng = new LatLng(33.9086568,-117.4792414);
+                Marker lshs = gMap.addMarker(
+                        new MarkerOptions()
+                                .position(lshsLatLng)
+                                .title("La Sierra High School\n4145 La Sierra Ave")
+                                .snippet("⚫ Blood Drive -November 1st" +
+                                        "\n⚫ Fall Play Performances -November 4th" +
+                                        "\n⚫ Fall Play Strike -November 6th" +
+                                        "\n⚫ 8th Grade CTE Showcase -November 8th" +
+                                        "\n⚫ NHS Induction Ceremony -November 14th")
                 );
 
 
