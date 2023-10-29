@@ -32,7 +32,7 @@ public class MapFragment extends Fragment {
 
                 //setting starting point of the project
                 //and other things to make
-                CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9627, -117.2580), 10);
+                CameraUpdate point = CameraUpdateFactory.newLatLngZoom(new LatLng(33.9627, -117.2580), 12);
                 gMap.moveCamera(point);
                 gMap.setInfoWindowAdapter(new CustomInfoWindowAdapter(getActivity()));
 
@@ -86,6 +86,20 @@ public class MapFragment extends Fragment {
                                 .snippet("⚫ Baseball Tryouts -November 1st" +
                                         "\n⚫ \"She Kills Monsters\" Play -November 2nd" +
                                         "\n⚫ \"She Kills Monsters\" Play -November 3rd")
+                );
+
+                final LatLng mvusdLatLng = new LatLng(33.9183429,-117.2153814);
+                Marker mvusd = gMap.addMarker(
+                        new MarkerOptions()
+                                .position(mvusdLatLng)
+                                .title("Moreno Valley Unified School District Office\n25634 Alessandro Blvd.")
+                                .snippet("⚫ CBO Committee Meeting -November 1st" +
+                                        "\n⚫ Board Study Session -November 2nd" +
+                                        "\n⚫ African American Parent Awards -November 9th" +
+                                        "\n⚫ Veteran's Day (No School) -November 10th" +
+                                        "\n⚫ Regular Board Meeting -November 14th" +
+                                        "\n⚫ Bountiful Harvest -November 17th" +
+                                        "\n⚫ Thanksgiving Break -November 20th - 24th")
                 );
 
 
