@@ -36,7 +36,7 @@ public class CustomInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
         TextView tvSnippet = (TextView) view.findViewById(R.id.snippet);
         if(!snippet.equals(""))
         {
-            tvSnippet.setText(Html.fromHtml(snippet));
+            tvSnippet.setText(snippet);
         }
     }
 
